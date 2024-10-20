@@ -42,7 +42,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                     <h1 className="text-base font-semibold md:text-2x1">Socials</h1>
                     <ul className="flex gap-3">
                         <li>
-                            <a href="https://github.com/GAT007/portfolio" target="_blank" rel="noopener noreferrer"
+                            <a href="https://github.com/GAT007" target="_blank" rel="noopener noreferrer"
                                 className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-all">
                                 <BiLogoGithub className="text-2xl text-gray-800 dark:text-gray-300" />
                             </a>
