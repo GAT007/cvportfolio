@@ -1,6 +1,6 @@
 import React from 'react'
 import image from '/profilepicture.jpg'
-import { BiCurrentLocation, BiEnvelope, BiLogoGithub, BiLogoLinkedin, BiMoon, BiSun } from 'react-icons/bi'
+import { BiCurrentLocation, BiDownload, BiEnvelope, BiLogoGithub, BiLogoLinkedin, BiMoon, BiSun } from 'react-icons/bi'
 
 const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
     return (
@@ -16,13 +16,22 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                         </h3>
                     </div>
 
-                    <button className="absolute right-10 top-10" onClick={toggleDarkMode}>
+                    <button className="absolute right-10 top-8" onClick={toggleDarkMode}>
                         {
                             darkMode ? (
                                 <BiSun className='text-2x1' />
                             ) : <BiMoon className='text-2x1' />
                         }
                     </button>
+
+                    {/* Download Icon */}
+                    <a
+                        href="/AmithTallanki.pdf" // Link to the file in the public folder
+                        download // This attribute will trigger the download
+                        className="mt-2 hover:text-blue-500 absolute right-9 top-12" // Add hover effect if desired
+                    >
+                        <BiDownload className='text-2xl' />
+                    </a>
                 </div>
 
                 <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
@@ -90,7 +99,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
+                <div className="hidden md:flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
                     <h1 className="text-base font-semibold md:text-2xl">Hobbies</h1>
                     <div className="flex flex-wrap gap-16 p-3">
                         <ul className="flex list-disc flex-col gap-3">
@@ -103,20 +112,18 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
+                <div className="hidden md:flex flex-col items-start justify-start gap-5 border-b p-5 dark:border-gray-700">
                     <h1 className="text-base font-semibold md:text-2xl">Languages</h1>
                     <div className="flex flex-wrap gap-16 p-3">
                         <ul className="flex list-disc flex-col gap-3">
                             <li>English</li>
                             <li>Hindi</li>
-                            <li>Telgu</li>
+                            <li>Telugu</li>
                             <li>Kannada</li>
                             <li>Spanish</li>
                         </ul>
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

@@ -1,28 +1,129 @@
 import React from 'react';
-import { Chrono } from "react-chrono";
+import { useState } from 'react';
+import { BiLink, BiLogoGithub, BiTrophy } from 'react-icons/bi'
+import ml4timage from '/ml4t.jpg'
 
 const Home = () => {
-    const items = [
+    const jobs = [
         {
             title: "Software Development Engineer 2",
-            cardTitle: "Microsoft",
-            cardSubtitle: "2022 - present",
-            cardDetailedText: "Developing scalable solutions and collaborating with global teams."
+            company: "Microsoft",
+            year: "2022-present",
+            description: "Working as a part of the Azure Stack Edge (ASE) and Hyper Converged Infrastructure (HCI) service teams. Worked closely with principal engineers to design and implement key infrastructure components for HCI, an IaaS offering, and ASE, a HaaS solution. Developing scalable solutions and collaborating with global teams",
+            details: [
+                "Led the upgrade of the Azure Service Bus for a high-volume, service-based architecture, optimizing message throughput and latency. Implemented a round-robin strategy that allowed the use of multiple namespaces simultaneously, increasing system capacity by 3x without additional costs.",
+                "Created comprehensive documentation of verbal processes, significantly easing the onboarding of new team members and accelerating their integration into the team. Mentored five junior engineers by developing tailored training plans that enhanced their skills and performance as cloud engineers, contributing to their professional growth.",
+                "Developed and implemented CI/CD pipelines with robust DevOps strategies, resulting in higher quality code and significantly reduced turnaround times for project delivery. Leveraged my Microsoft Certified: DevOps Engineer Expert certification to ensure best practices and industry standards were followed.",
+                "Obtained Microsoft Certified: Azure Solutions Architect Expert certification and utilized this expertise to design and implement more scalable, secure, and efficient cloud solutions, significantly improving project outcomes."
+            ],
         },
         {
             title: "Software Development Engineer 2",
-            cardTitle: "Juniper Networks",
-            cardSubtitle: "2019-2022",
-            cardDetailedText: "Worked on Azure Cloud Solutions and built web applications."
+            company: "Juniper Networks",
+            year: "2019-2022",
+            description: "Working as a part of Juniper's Pre Commit Tool (PCT) team which is a large scale, data driven, end to end distributed cloud application that is used by over 10000 developers worldwide to test and commit code for hardware build processes.",
+            details: [
+                "Designed high level architecture and built a machine learning model for error detection and analysis in user logs of build failures and created tools and libraries which are used for creating new builds. This reduced time taken by end user to analyze issues in their builds by more than 90\%",
+                "Gathered fuzzy requirements from users and implemented intuitive features from scratch by designing modular class and service level architectures which are scalable, highly performant and reliable.",
+                "Built rest api services using SpringBoot from scratch to enable quick development, faster integration and testing. ",
+                "Developed and delivered high performing, optimized code based on interactions with the users and design documents"
+            ],
         },
         {
-            title: "Associate Software Engineer",
-            cardTitle: "Manhattan Associates",
-            cardSubtitle: "2016-2019",
-            cardDetailedText: "Started career as a junior developer working on backend services."
+            title: "Associate Software Developer",
+            company: "Manhattan Associates",
+            year: "2016-2020",
+            description: "Jaspersoft Reporting software takes information from one or more sources and presents it in an easy to read, highly interactive format for business users. Multiple clients such as Michael Kors, Michaels, Underarmour, Reitmans, Belk, J Crew, Brookes Brothers use reports designed and developed by me.",
+            details: [
+                "Lead developer in charge of communicating with the client to ascertain feasibility, needs and features.",
+                "Designed and developed a microservice architecture using Springboot and Netflix OSS on the backend side which cut down implementation times for new reports by more than half.",
+                "Built rest api services using SpringBoot from scratch to enable quick development, faster integration and testing.",
+                "Developed and delivered high performing, optimized code based on interactions with the client/consultant and design documents."
+            ],
+        },
+    ];
+
+    const projects = [
+        {
+            title: "ML4T Capstone",
+            description: "Capstone Project for ML4T that includes a trading sim and strategy",
+            githubLink: "https://github.com/GAT007/ML4TCapstone",
+            imageUrl: "/ml4t.jpg",
+            techStack: ["Python", "Pandas"]
+        },
+        {
+            title: "Amcorp Ecommerce",
+            description: "An ecommerce site built for selling antiques and collectables",
+            githubLink: "https://github.com/GAT007/djangoEcom",
+            imageUrl: "/ecommerce.jpg",
+            techStack: ["Python", "Django"]
+        },
+        {
+            title: "Yelp Camp",
+            description: "A Camping Site Review Site",
+            githubLink: "https://github.com/GAT007/YelpCamp",
+            imageUrl: "/camping.jpeg",
+            techStack: ["Javascript", "MERN"]
+        },
+        {
+            title: "Amcorp Retail Manager",
+            description: "A Retail Management End to End Solution built on C#",
+            githubLink: "https://github.com/GAT007/amcorpRetailManager",
+            imageUrl: "/retailManagement.jpeg",
+            techStack: ["C#", "Swagger"]
+        },
+        {
+            title: "Premier League Analysis",
+            description: "Identified strategies to pick perfect fantasy league players",
+            githubLink: "https://github.com/GAT007/ltcws",
+            imageUrl: "pl.jpeg",
+            techStack: ["Python", "Pandas"]
+        },
+        {
+            title: "Python Automation",
+            description: "Created modules for automating everyday tasks",
+            githubLink: "https://github.com/GAT007/pythonAutomation",
+            imageUrl: "/automation.jpeg",
+            techStack: ["Python"]
         }
     ];
 
+    const papers = [
+        {
+            title: "A New Approach for Fast Transmission to Remote Cooperative Groups with a New Key Paradigm using Voice Authentication",
+            description: "An in-depth look into the intricacies of software engineering.",
+            publisher: "John Doe",
+            publicationDate: "2016",
+            link: "https://link.springer.com/chapter/10.1007/978-981-10-1678-3_71",
+        }
+    ];
+
+    const awards = [
+        {
+            title: "Department Spotlight Award",
+            organization: "Juniper Networks",
+            year: "2020",
+            description: "Awarded for outstanding performance and leadership on the PCT tool.",
+        },
+        {
+            title: "Spirit Award - Go The Distance",
+            organization: "Manhattan Associates",
+            year: "2018",
+            description: "Awarded for impactful work done on co-ordinating with multiple brands to deliver finished products.",
+        },
+        {
+            title: "Best Project Award",
+            organization: "Dayananda Sagar Tech Fest",
+            year: "2016",
+            description: "Received for creating an outstanding ML project at the college level",
+        },
+    ];
+
+    const [expanded, setExpanded] = useState(null);
+
+    const handleToggle = (index) => {
+        setExpanded(expanded === index ? null : index);
+    };
 
     return (
         <div className='min-h-screen flex-[3] transition-all duration-500 dark:bg-black dark:text-white'>
@@ -42,117 +143,155 @@ const Home = () => {
                     <h1 className="text-base font-bold md:text-4xl">Experience</h1>
                     <div className="flex flex-col lg:flex-row lg:gap-20">
                         <ul className="space-y-3">
-                            {[
-                                {
-                                    title: "Software Development Engineer 2",
-                                    company: "Microsoft",
-                                    year: "2022-present",
-                                    description: "Developing scalable solutions and collaborating with global teams.",
-                                    details: [
-                                        "Developed scalable solutions",
-                                        "Collaborated with global teams",
-                                        "Implemented best practices",
-                                    ],
-                                },
-                                {
-                                    title: "Software Development Engineer 2",
-                                    company: "Juniper Networks",
-                                    year: "2019-2022",
-                                    description: "Worked on Azure Cloud Solutions and built web applications.",
-                                    details: [
-                                        "Worked on Azure Cloud Solutions",
-                                        "Built web applications",
-                                        "Optimized existing code",
-                                    ],
-                                },
-                                {
-                                    title: "Associate Software Developer",
-                                    company: "Manhattan Associates",
-                                    year: "2016-2020",
-                                    description: "Started career as a junior developer working on backend services.",
-                                    details: [
-                                        "Started career as a junior developer",
-                                        "Worked on backend services",
-                                        "Participated in code reviews",
-                                    ],
-                                },
-                            ].map((jobs, index) => (
-                                <li key={index} className="relative flex flex-col gap-1 p-6 border-1 p-6 before:absolute before:left-[-6px] before:top-1/2 before:h-3 before:w-3 before:-translate-y-1/2 before:rounded-full before:bg-black dark:before:bg-white before:transform">
-                                    <span className="text-lg font-semibold">{jobs.title}</span>
-                                    <span className="font-light">{jobs.company}</span>
-                                    <time className="text-sm text-gray-400">{jobs.year}</time>
-                                    {/* Show description only on md and larger screens */}
-                                    <p className="text-sm text-gray-600 dark:text-gray-400 hidden md:block">{jobs.description}</p>
-                                    {/* Bullet points for details, hidden on small screens */}
-                                    <ul className="list-disc ml-6 text-sm text-gray-600 dark:text-gray-400 hidden md:block">
-                                        {jobs.details.map((detail, detailIndex) => (
-                                            <li key={detailIndex}>{detail}</li>
-                                        ))}
-                                    </ul>
+                            {jobs.map((job, index) => (
+                                <li
+                                    key={index}
+                                    className="relative flex flex-col gap-4 p-6 before:absolute before:left-[-6px] before:top-1/2 before:h-3 before:w-3 before:-translate-y-1/2 before:rounded-full before:bg-black dark:before:bg-white"
+                                >
+                                    <div onClick={() => handleToggle(index)} className="cursor-pointer">
+                                        {/* Make each item appear on a separate line */}
+                                        <span className="block text-lg font-semibold">{job.title}</span>
+                                        <span className="block font-light">{job.company}</span>
+                                        <time className="block text-sm text-gray-400">{job.year}</time>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">{job.description}</p>
+                                    </div>
+
+                                    {/* Collapsible details */}
+                                    {expanded === index && (
+                                        <ul className="list-disc ml-6 text-sm text-gray-600 dark:text-gray-400">
+                                            {job.details.map((detail, detailIndex) => (
+                                                <li key={detailIndex}>{detail}</li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </li>
                             ))}
                         </ul>
                     </div>
                 </div>
 
-                {/* //To do : Create 2 column/ 3 column projects with card structures */}
-
-                <div className="max-w-3xl space-y-8">
+                <div className="max-w-7xl space-y-8 mx-auto">
                     <h1 className="text-2xl font-bold md:text-4xl">Projects</h1>
 
-                    <div className="space-y-10">
-                        <div className="text-baseline space-y-3">
-                            <h3 className="text-sm font-semibold md:text-lg">Project Title</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">Lorem ipsum dolor</p>
-                        </div>
-                        <div className="text-baseline space-y-3">
-                            <h3 className="text-sm font-semibold md:text-lg">Project Title</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">Lorem ipsum dolor</p>
-                        </div>
-                        <div className="text-baseline space-y-3">
-                            <h3 className="text-sm font-semibold md:text-lg">Project Title</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">Lorem ipsum dolor</p>
-                        </div>
-                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {projects.map((project, index) => (
+                            <div
+                                key={index}
+                                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col justify-between"
+                            >
+                                {/* Top Part: Image and Title */}
+                                <div className="relative">
+                                    <img
+                                        src={project.imageUrl}
+                                        alt={`${project.title} image`}
+                                        className="w-full h-40 object-cover"
+                                    />
+                                    <h3 className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold bg-black bg-opacity-50">
+                                        {project.title}
+                                    </h3>
+                                </div>
 
-                    <div className="space-y-10">
-                        <div className="text-baseline space-y-3">
-                            <h3 className="text-sm font-semibold md:text-lg">Project Title</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">Lorem ipsum dolor</p>
-                        </div>
-                        <div className="text-baseline space-y-3">
-                            <h3 className="text-sm font-semibold md:text-lg">Project Title</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">Lorem ipsum dolor</p>
-                        </div>
-                        <div className="text-baseline space-y-3">
-                            <h3 className="text-sm font-semibold md:text-lg">Project Title</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">Lorem ipsum dolor</p>
-                        </div>
+                                {/* Bottom Part: Description and GitHub Link */}
+                                <div className="p-6 flex flex-col justify-between flex-grow">
+                                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                                        {project.description}
+                                    </p>
+                                    <div className="mt-4 flex justify-between items-center">
+
+                                        {/* Tech Stack Pill Boxes */}
+                                        <div className="flex flex-wrap gap-1">
+                                            {project.techStack.map((tech, techIndex) => (
+                                                <span
+                                                    key={techIndex}
+                                                    className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white text-xs font-medium py-1 px-2 rounded-full"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <a
+                                            href={project.githubLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
+                                        >
+                                            <BiLogoGithub size={24} />
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* TO DO : Add details about the papers */}
-                <div className="max-w-3xl space-y-8">
+
+                <div className="max-w-7xl space-y-8 mx-auto">
                     <h1 className="text-2xl font-bold md:text-4xl">Papers</h1>
 
-                    <div className="space-y-10">
-                        <div className="text-baseline space-y-3">
-                            <h3>Project Title</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">Lorem ipsum dolor</p>
-                        </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        {papers.map((paper, index) => (
+                            <div
+                                key={index}
+                                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col justify-between"
+                            >
+                                {/* Paper Title and Link */}
+                                <div className="flex items-center space-x-2">
+                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                        <a href={paper.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+                                            {paper.title}
+                                        </a>
+                                    </h3>
+                                    <BiLink className="text-gray-500 dark:text-gray-400" />
+                                </div>
+
+                                {/* publisher and Date */}
+                                <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                                    <p>By {paper.publisher}</p>
+                                    <p>{paper.publicationDate}</p>
+                                </div>
+
+                                {/* Description */}
+                                <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
+                                    {paper.description}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
-
-                {/* TO DO : Add details about the awards */}
-                <div className="max-w-3xl space-y-8">
+                <div className="max-w-7xl space-y-8 mx-auto">
                     <h1 className="text-2xl font-bold md:text-4xl">Awards</h1>
 
-                    <div className="space-y-10">
-                        <div className="text-baseline space-y-3">
-                            <h3>Award Title</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">Lorem ipsum dolor</p>
-                        </div>
+                    {/* Responsive grid layout for awards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {awards.map((award, index) => (
+                            <div
+                                key={index}
+                                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col justify-between space-y-4"
+                            >
+                                {/* Award Title with Icon */}
+                                <div className="flex items-center space-x-2">
+                                    <BiTrophy className="text-yellow-500 dark:text-yellow-400" /> {/* Trophy Icon */}
+                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                        {award.title}
+                                    </h3>
+                                </div>
+
+                                {/* Award Organization and Year */}
+                                <div className="text-sm text-gray-500 dark:text-gray-400">
+                                    <p>{award.organization}</p>
+                                    <p>{award.year}</p>
+                                </div>
+
+                                {/* Description (Optional) */}
+                                {award.description && (
+                                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                                        {award.description}
+                                    </p>
+                                )}
+                            </div>
+                        ))}
                     </div>
                 </div>
             </main>
