@@ -8,12 +8,14 @@ const Home = () => {
         {
             title: "Software Development Engineer 2",
             company: "Microsoft",
-            year: "2022-present",
+            year: "2022-2024",
             description: "Working as a part of the Azure Stack Edge (ASE) and Hyper Converged Infrastructure (HCI) service teams. Worked closely with principal engineers to design and implement key infrastructure components for HCI, an IaaS offering, and ASE, a HaaS solution. Developing scalable solutions and collaborating with global teams",
             details: [
-                "Led the upgrade of the Azure Service Bus for a high-volume, service-based architecture, optimizing message throughput and latency. Implemented a round-robin strategy that allowed the use of multiple namespaces simultaneously, increasing system capacity by 3x without additional costs.",
+                "Spearheaded Azure Service Bus upgrade for a high-volume architecture, implementing a round-robin strategy that tripled system capacity without increasing costs, reducing message latency by 40\% and enhancing throughput.",
+                "Contributed to the development of the Arc Autonomous/Project Winfield product line, the latest innovation from Azure Edge, allowing customers to create fully disconnected cloud infrastructures on-premises, expanding the capabilities of Azure services.",
+                "Enhanced project security by implementing Azure services such as Azure Front Door, Security Center, and Key Vault, securing data and access points, and reducing potential security incidents by 50\% through automated monitoring and response.",
                 "Created comprehensive documentation of verbal processes, significantly easing the onboarding of new team members and accelerating their integration into the team. Mentored five junior engineers by developing tailored training plans that enhanced their skills and performance as cloud engineers, contributing to their professional growth.",
-                "Developed and implemented CI/CD pipelines with robust DevOps strategies, resulting in higher quality code and significantly reduced turnaround times for project delivery. Leveraged my Microsoft Certified: DevOps Engineer Expert certification to ensure best practices and industry standards were followed.",
+                "Designed and optimized CI/CD pipelines, leveraging advanced DevOps strategies to boost code quality by 35\% and cut project delivery timelines by 25\%. Implemented Azure DevOps best practices, streamlining deployments across teams.",
                 "Obtained Microsoft Certified: Azure Solutions Architect Expert certification and utilized this expertise to design and implement more scalable, secure, and efficient cloud solutions, significantly improving project outcomes."
             ],
         },
@@ -21,9 +23,9 @@ const Home = () => {
             title: "Software Development Engineer 2",
             company: "Juniper Networks",
             year: "2019-2022",
-            description: "Working as a part of Juniper's Pre Commit Tool (PCT) team which is a large scale, data driven, end to end distributed cloud application that is used by over 10000 developers worldwide to test and commit code for hardware build processes.",
+            description: "Worked as a part of Juniper's Pre Commit Tool (PCT) team which is a large scale, data driven, end to end distributed cloud application that is used by over 10000 developers worldwide to test and commit code for hardware build processes.",
             details: [
-                "Designed high level architecture and built a machine learning model for error detection and analysis in user logs of build failures and created tools and libraries which are used for creating new builds. This reduced time taken by end user to analyze issues in their builds by more than 90\%",
+                "Designed and implemented a machine learning-driven log analysis system for build failures, leveraging Random Forest for automated error classification and anomaly detection. Reduced user debugging time by 90\% and enhanced system reliability, delivering actionable insights to 10,000+ developers worldwide.",
                 "Gathered fuzzy requirements from users and implemented intuitive features from scratch by designing modular class and service level architectures which are scalable, highly performant and reliable.",
                 "Built rest api services using SpringBoot from scratch to enable quick development, faster integration and testing. ",
                 "Developed and delivered high performing, optimized code based on interactions with the users and design documents"
@@ -33,12 +35,11 @@ const Home = () => {
             title: "Associate Software Developer",
             company: "Manhattan Associates",
             year: "2016-2020",
-            description: "Jaspersoft Reporting software takes information from one or more sources and presents it in an easy to read, highly interactive format for business users. Multiple clients such as Michael Kors, Michaels, Underarmour, Reitmans, Belk, J Crew, Brookes Brothers use reports designed and developed by me.",
+            description: "Worked as part of the Product Services Orgranization (PSO) team, developing interactive reporting solutions based on Jaspersoft Reports that aggregated data from multiple sources for business users. Designed and implemented reports used by clients such as Michael Kors, Michaels, Under Armour, Reitmans, Belk, J.Crew, and Brooks Brothers to drive data-driven decision-making.",
             details: [
                 "Lead developer in charge of communicating with the client to ascertain feasibility, needs and features.",
                 "Designed and developed a microservice architecture using Springboot and Netflix OSS on the backend side which cut down implementation times for new reports by more than half.",
-                "Built rest api services using SpringBoot from scratch to enable quick development, faster integration and testing.",
-                "Developed and delivered high performing, optimized code based on interactions with the client/consultant and design documents."
+                "Designed and built REST API services using Spring Boot from scratch, enabling rapid development, seamless integration, and efficient testing while delivering high-performing, optimized code based on client requirements and design documents."
             ],
         },
     ];
@@ -91,8 +92,8 @@ const Home = () => {
     const papers = [
         {
             title: "A New Approach for Fast Transmission to Remote Cooperative Groups with a New Key Paradigm using Voice Authentication",
-            description: "An in-depth look into the intricacies of software engineering.",
-            publisher: "John Doe",
+            description: "A new approach to encryption using voice authentication",
+            publisher: "Springer Verlag Publications",
             publicationDate: "2016",
             link: "https://link.springer.com/chapter/10.1007/978-981-10-1678-3_71",
         }

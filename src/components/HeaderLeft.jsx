@@ -38,7 +38,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                     <ul className="space-y-3">
                         <li className="flex items-center gap-2">
                             <BiCurrentLocation className='text-x1' />
-                            <span>Bangalore, India</span>
+                            <span>Atlanta, Georgia</span>
                         </li>
                         <li className="flex items-center gap-2">
                             <BiEnvelope className='text-x1' />
@@ -57,7 +57,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/amithtallanki/" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.linkedin.com/in/atallanki" target="_blank" rel="noopener noreferrer"
                                 className="flex items-center justify-center w-12 h-12 bg-blue-200 rounded-full dark:bg-blue-800 hover:bg-blue-300 dark:hover:bg-blue-700 transition-all">
                                 <BiLogoLinkedin className="text-2xl text-blue-800 dark:text-blue-300" />
                             </a>
@@ -107,7 +107,7 @@ const HeaderLeft = ({ darkMode, toggleDarkMode }) => {
                             <li>Running Marathons</li>
                             <li>Cooking</li>
                             <li>Gaming</li>
-                            <li>Photography</li>
+                            <li>Parkour</li>
                         </ul>
                     </div>
                 </div>
