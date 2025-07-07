@@ -1,7 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
-import { BiLink, BiLogoGithub, BiTrophy } from 'react-icons/bi'
+import {useState} from 'react';
+import {BiLink, BiLogoGithub, BiTrophy} from 'react-icons/bi'
 import ml4timage from '/ml4t.jpg'
+import {FaChevronDown, FaChevronUp} from "react-icons/fa";
 
 const Home = () => {
     const jobs = [
@@ -131,12 +132,21 @@ const Home = () => {
 
             <main className="flex max-w-[1000px] flex-col gap-10 p-5 md:mx-10 md:py-14">
                 <div className="space-y-5">
-                    <h1 className="text-2xl font-light md:text-4xl">Hi, I'm <span className="font-semibold">Amith</span>!</h1>
+                    <h1 className="text-2xl font-light md:text-4xl">Hi, I'm <span className="font-semibold">Amith</span>!
+                    </h1>
                     <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">
 
-                        I’m an astute, detail-oriented, and battle-hardened software engineer with over 8 years of experience across diverse technologies and industries. Skilled in backend development with languages like Java, Python, and C#, I believe in creating modular, scalable, and tech-debt-free software solutions. I focus on getting things done right rather than just done, ensuring long-term success and smoother processes.
-                        <br />
-                        Currently working as a cloud engineer at Microsoft, I’m certified as an Azure Solutions Architect Expert and DevOps Engineer Expert. My passion for building efficient and secure cloud infrastructures has allowed me to contribute to major projects like Azure Stack Edge and Azure Hyperconverged Infrastructure. I’m always looking for new challenges that can further define my career and push my technical boundaries.
+                        I’m an astute, detail-oriented, and battle-hardened software engineer with over 8 years of
+                        experience across diverse technologies and industries. Skilled in backend development with
+                        languages like Java, Python, and C#, I believe in creating modular, scalable, and tech-debt-free
+                        software solutions. I focus on getting things done right rather than just done, ensuring
+                        long-term success and smoother processes.
+                        <br/>
+                        Currently working as a cloud engineer at Microsoft, I’m certified as an Azure Solutions
+                        Architect Expert and DevOps Engineer Expert. My passion for building efficient and secure cloud
+                        infrastructures has allowed me to contribute to major projects like Azure Stack Edge and Azure
+                        Hyperconverged Infrastructure. I’m always looking for new challenges that can further define my
+                        career and push my technical boundaries.
                     </p>
                 </div>
 
@@ -149,12 +159,17 @@ const Home = () => {
                                     key={index}
                                     className="relative flex flex-col gap-4 p-6 before:absolute before:left-[-6px] before:top-1/2 before:h-3 before:w-3 before:-translate-y-1/2 before:rounded-full before:bg-black dark:before:bg-white"
                                 >
-                                    <div onClick={() => handleToggle(index)} className="cursor-pointer">
-                                        {/* Make each item appear on a separate line */}
-                                        <span className="block text-lg font-semibold">{job.title}</span>
-                                        <span className="block font-light">{job.company}</span>
-                                        <time className="block text-sm text-gray-400">{job.year}</time>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400">{job.description}</p>
+                                    <div onClick={() => handleToggle(index)}
+                                         className="flex justify-between items-end cursor-pointer">
+                                        <div>
+                                            <span className="block text-lg font-semibold">{job.title}</span>
+                                            <span className="block font-light">{job.company}</span>
+                                            <time className="block text-sm text-gray-400">{job.year}</time>
+                                            <p className="text-sm text-gray-600 dark:text-gray-400">{job.description}</p>
+                                        </div>
+                                        <div className="text-xl">
+                                            {expanded === index ? <FaChevronUp/> : <FaChevronDown/>}
+                                        </div>
                                     </div>
 
                                     {/* Collapsible details */}
@@ -180,48 +195,50 @@ const Home = () => {
                                 key={index}
                                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col justify-between"
                             >
-                                {/* Top Part: Image and Title */}
-                                <div className="relative">
-                                    <img
-                                        src={project.imageUrl}
-                                        alt={`${project.title} image`}
-                                        className="w-full h-40 object-cover"
-                                    />
-                                    <h3 className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold bg-black bg-opacity-50">
-                                        {project.title}
-                                    </h3>
-                                </div>
+                                <a
+                                    key={index}
+                                    href={project.githubLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col justify-between cursor-pointer transition-transform duration-300 hover:scale-105"
+                                >
+                                    {/* Top Part: Image and Title */}
+                                    <div className="relative">
+                                        <img
+                                            src={project.imageUrl}
+                                            alt={`${project.title} image`}
+                                            className="w-full h-40 object-cover"
+                                        />
+                                        <h3 className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold bg-black bg-opacity-50">
+                                            {project.title}
+                                        </h3>
+                                    </div>
 
-                                {/* Bottom Part: Description and GitHub Link */}
-                                <div className="p-6 flex flex-col justify-between flex-grow">
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                                        {project.description}
-                                    </p>
-                                    <div className="mt-4 flex justify-between items-center">
+                                    {/* Bottom Part: Description and GitHub Link */}
+                                    <div className="p-6 flex flex-col justify-between flex-grow">
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                                            {project.description}
+                                        </p>
+                                        <div className="mt-4 flex justify-between items-center">
 
-                                        {/* Tech Stack Pill Boxes */}
-                                        <div className="flex flex-wrap gap-1">
-                                            {project.techStack.map((tech, techIndex) => (
-                                                <span
-                                                    key={techIndex}
-                                                    className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white text-xs font-medium py-1 px-2 rounded-full"
-                                                >
+                                            {/* Tech Stack Pill Boxes */}
+                                            <div className="flex flex-wrap gap-1">
+                                                {project.techStack.map((tech, techIndex) => (
+                                                    <span
+                                                        key={techIndex}
+                                                        className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white text-xs font-medium py-1 px-2 rounded-full"
+                                                    >
                                                     {tech}
                                                 </span>
-                                            ))}
-                                        </div>
-                                        <a
-                                            href={project.githubLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
-                                        >
-                                            <BiLogoGithub size={24} />
-                                        </a>
+                                                ))}
+                                            </div>
+                                            <BiLogoGithub size={24}/>
 
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
+
                         ))}
                     </div>
                 </div>
@@ -239,11 +256,12 @@ const Home = () => {
                                 {/* Paper Title and Link */}
                                 <div className="flex items-center space-x-2">
                                     <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                                        <a href={paper.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+                                        <a href={paper.link} target="_blank" rel="noopener noreferrer"
+                                           className="hover:text-blue-500">
                                             {paper.title}
                                         </a>
                                     </h3>
-                                    <BiLink className="text-gray-500 dark:text-gray-400" />
+                                    <BiLink className="text-gray-500 dark:text-gray-400"/>
                                 </div>
 
                                 {/* publisher and Date */}
@@ -273,7 +291,7 @@ const Home = () => {
                             >
                                 {/* Award Title with Icon */}
                                 <div className="flex items-center space-x-2">
-                                    <BiTrophy className="text-yellow-500 dark:text-yellow-400" /> {/* Trophy Icon */}
+                                    <BiTrophy className="text-yellow-500 dark:text-yellow-400"/> {/* Trophy Icon */}
                                     <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
                                         {award.title}
                                     </h3>
